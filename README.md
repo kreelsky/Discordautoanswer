@@ -1,4 +1,4 @@
-
+================================================================================
                          DISCORD AUTO-ANSWER BOT
                     Discord Auto-Answer + Telegram Control
 ================================================================================
@@ -8,7 +8,7 @@
   ENGLISH
 --------------------------------------------------------------------------------
 
-  SHORT DESCRIPTION (GitHub repo)
+  SHORT DESCRIPTION
   -------------------------------
   Discord auto-reply bot with Telegram remote control. Manage profile,
   auto-replies, whitelist/blacklist from your phone.
@@ -51,6 +51,8 @@
   ----
   Uses a Discord user token. This may violate Discord Terms of Service.
   Use at your own risk.
+
+
 --------------------------------------------------------------------------------
   РУССКИЙ
 --------------------------------------------------------------------------------
@@ -102,6 +104,7 @@
 ================================================================================
   See also: commands.txt — full list of Telegram commands
 ================================================================================
+
 --------------------------------------------------------------------------------
 Only users listed in TELEGRAM_ADMIN_IDS can use these commands.
 Только пользователи из TELEGRAM_ADMIN_IDS могут использовать эти команды.
