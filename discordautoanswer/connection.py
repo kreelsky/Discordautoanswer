@@ -1,0 +1,3 @@
+DISCORD_TOKEN = ""
+TELEGRAM_BOT_TOKEN = ""
+TELEGRAM_ADMIN_IDS: list[int] = []

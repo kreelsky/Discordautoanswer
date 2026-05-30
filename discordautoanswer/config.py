@@ -1,26 +1,29 @@
 from __future__ import annotations
 
 import json
-import os
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
-from dotenv import load_dotenv
-
-load_dotenv()
-
-DATA_DIR = Path(__file__).resolve().parent / "data"
+BASE_DIR = Path(__file__).resolve().parent
+DATA_DIR = BASE_DIR / "data"
 SETTINGS_PATH = DATA_DIR / "settings.json"
 
-DISCORD_TOKEN = os.getenv("DISCORD_TOKEN", "").strip()
-TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
+try:
+    from connection import DISCORD_TOKEN, TELEGRAM_ADMIN_IDS, TELEGRAM_BOT_TOKEN
+except ImportError:
+    DISCORD_TOKEN = ""
+    TELEGRAM_BOT_TOKEN = ""
+    TELEGRAM_ADMIN_IDS = []
 
-_raw_admin_ids = os.getenv("TELEGRAM_ADMIN_IDS", "")
-TELEGRAM_ADMIN_IDS: set[int] = {
-    int(item.strip())
-    for item in _raw_admin_ids.split(",")
-    if item.strip().isdigit()
-}
+DISCORD_TOKEN = str(DISCORD_TOKEN).strip()
+TELEGRAM_BOT_TOKEN = str(TELEGRAM_BOT_TOKEN).strip()
+
+if isinstance(TELEGRAM_ADMIN_IDS, int):
+    TELEGRAM_ADMIN_IDS = {TELEGRAM_ADMIN_IDS}
+elif isinstance(TELEGRAM_ADMIN_IDS, (list, tuple, set)):
+    TELEGRAM_ADMIN_IDS = {int(item) for item in TELEGRAM_ADMIN_IDS}
+else:
+    TELEGRAM_ADMIN_IDS = set()
 
 DISCORD_API = "https://discord.com/api/v10"
 GATEWAY_URL = "wss://gateway.discord.gg/?v=10&encoding=json"
@@ -70,9 +73,9 @@ def save_settings(settings: Settings) -> None:
 def validate_env() -> list[str]:
     errors: list[str] = []
     if not DISCORD_TOKEN:
-        errors.append("DISCORD_TOKEN is missing")
+        errors.append("DISCORD_TOKEN is missing in connection.py")
     if not TELEGRAM_BOT_TOKEN:
-        errors.append("TELEGRAM_BOT_TOKEN is missing")
+        errors.append("TELEGRAM_BOT_TOKEN is missing in connection.py")
     if not TELEGRAM_ADMIN_IDS:
-        errors.append("TELEGRAM_ADMIN_IDS is missing or invalid")
+        errors.append("TELEGRAM_ADMIN_IDS is missing in connection.py")
     return errors
