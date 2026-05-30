@@ -1,106 +1,113 @@
-================================================================================
-                         DISCORD AUTO-ANSWER BOT
-                    Discord Auto-Answer + Telegram Control
-================================================================================
+
+  ╭─────────────────────────────────────────────────────────────────────────╮
+  │                                                                         │
+  │                    Discord Auto-Answer Bot                              │
+  │                                                                         │
+  │              Auto-replies on Discord  ·  Control via Telegram           │
+  │                                                                         │
+  ╰─────────────────────────────────────────────────────────────────────────╯
 
 
---------------------------------------------------------------------------------
-  ENGLISH
---------------------------------------------------------------------------------
-
-  SHORT DESCRIPTION
-  -------------------------------
-  Discord auto-reply bot with Telegram remote control. Manage profile,
-  auto-replies, whitelist/blacklist from your phone.
+  · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·
 
 
-  ABOUT
-  -----
-  This bot automates Discord replies when you are away and lets you manage
-  your account from Telegram.
-
-  Features
-    * Auto-reply     — custom message in DMs and on mentions (optional)
-    * Delay          — wait before sending a reply
-    * Cooldown       — limit how often the same channel gets a reply
-    * Telegram panel — enable/disable auto-reply, edit message, lists
-    * Profile        — username, display name, bio, status, avatar
-    * Access control — whitelist and blacklist by Discord user ID
-    * Easy setup     — all tokens in one file: connection.py
-
-  Use case
-    You are offline but want Discord to answer for you. Change settings
-    and profile from Telegram without opening the Discord client.
+                              [  ENGLISH  ]
 
 
-  CONNECTION
-  ----------
-  Edit connection.py:
-
-    DISCORD_TOKEN       — your Discord user token
-    TELEGRAM_BOT_TOKEN  — token from @BotFather
-    TELEGRAM_ADMIN_IDS  — Telegram user IDs allowed to control the bot
-
-  Run:
-
-    pip install -r requirements.txt
-    python main.py
+      GitHub one-liner
+      ────────────────────────────────────────────────────────────────────
+      Discord auto-reply bot with Telegram remote control. Manage profile,
+      auto-replies, whitelist and blacklist from your phone.
 
 
-  NOTE
-  ----
-  Uses a Discord user token. This may violate Discord Terms of Service.
-  Use at your own risk.
+      What it does
+      ────────────────────────────────────────────────────────────────────
+      When you are away, the bot replies on Discord for you. Full account
+      and auto-reply settings are available through a Telegram bot.
 
 
---------------------------------------------------------------------------------
-  РУССКИЙ
---------------------------------------------------------------------------------
+      Features
+      ────────────────────────────────────────────────────────────────────
 
-  ------------------------------
-  Discord-бот с автоответом и управлением через Telegram. Профиль,
-  автоответы, whitelist/blacklist — с телефона.
-
-
-  О ПРОЕКТЕ
-  ---------
-  Бот автоматически отвечает в Discord, когда ты недоступен, и даёт
-  управлять аккаунтом через Telegram.
-
-  Возможности
-    * Автоответ      — свой текст в ЛС и при упоминаниях (опционально)
-    * Задержка       — пауза перед отправкой ответа
-    * Кулдаун        — ограничение частоты ответов в одном канале
-    * Панель в TG    — вкл/выкл автоответ, смена текста, списки
-    * Профиль        — username, имя, bio, статус, аватарка
-    * Списки         — whitelist и blacklist по Discord user id
-    * Подключение    — все токены в одном файле: connection.py
-
-  Зачем
-    Discord отвечает за тебя, пока ты офлайн. Настройки и профиль —
-    из Telegram, без клиента Discord.
+          ▸  Auto-reply in DMs and on mentions (toggle)
+          ▸  Custom reply text, delay, per-channel cooldown
+          ▸  Whitelist / blacklist by Discord user ID
+          ▸  Profile: username, display name, bio, status, avatar
+          ▸  Single config file: connection.py
 
 
-  ПОДКЛЮЧЕНИЕ
-  -----------
-  Заполни connection.py:
+      Quick start
+      ────────────────────────────────────────────────────────────────────
 
-    DISCORD_TOKEN       — user token Discord
-    TELEGRAM_BOT_TOKEN  — токен от @BotFather
-    TELEGRAM_ADMIN_IDS  — Telegram id тех, кто может управлять ботом
+          connection.py
+          ┌─────────────────────────────────────────────────────────────┐
+          │ DISCORD_TOKEN = "..."                                       │
+          │ TELEGRAM_BOT_TOKEN = "..."                                  │
+          │ TELEGRAM_ADMIN_IDS = [123456789]                            │
+          └─────────────────────────────────────────────────────────────┘
 
-  Запуск:
-
-    pip install -r requirements.txt
-    python main.py
-
-
-  ВАЖНО
-  -----
-  Используется user token Discord. Это может нарушать Terms of Service.
-  Используй на свой риск.
+          pip install -r requirements.txt
+          python main.py
 
 
-================================================================================
-  See also: commands.txt — full list of Telegram commands
-================================================================================
+      Warning
+      ────────────────────────────────────────────────────────────────────
+      Requires a Discord user token. May violate Discord ToS. Use at
+      your own risk.
+
+
+  · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·
+
+
+                              [  РУССКИЙ  ]
+
+
+      Описание для GitHub
+      ────────────────────────────────────────────────────────────────────
+      Discord-бот с автоответом и управлением через Telegram. Профиль,
+      автоответы, whitelist и blacklist — прямо с телефона.
+
+
+      Для чего
+      ────────────────────────────────────────────────────────────────────
+      Пока ты офлайн, бот отвечает в Discord за тебя. Все настройки
+      автоответа и профиля — через Telegram-бота.
+
+
+      Возможности
+      ────────────────────────────────────────────────────────────────────
+
+          ▸  Автоответ в ЛС и при упоминаниях (вкл/выкл)
+          ▸  Свой текст, задержка, кулдаун на канал
+          ▸  Whitelist / blacklist по Discord user id
+          ▸  Профиль: username, имя, bio, статус, аватарка
+          ▸  Один файл для токенов: connection.py
+
+
+      Быстрый старт
+      ────────────────────────────────────────────────────────────────────
+
+          connection.py
+          ┌─────────────────────────────────────────────────────────────┐
+          │ DISCORD_TOKEN = "..."                                       │
+          │ TELEGRAM_BOT_TOKEN = "..."                                  │
+          │ TELEGRAM_ADMIN_IDS = [123456789]                            │
+          └─────────────────────────────────────────────────────────────┘
+
+          pip install -r requirements.txt
+          python main.py
+
+
+      Важно
+      ────────────────────────────────────────────────────────────────────
+      Нужен user token Discord. Может нарушать ToS Discord. Используй
+      на свой риск.
+
+
+  · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·
+
+
+  ╭─────────────────────────────────────────────────────────────────────────╮
+  │  More commands →  commands.txt  (EN + RU)                               │
+  ╰─────────────────────────────────────────────────────────────────────────╯
+
